@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>NeonHack Academy</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="apple-touch-icon" href="icon.png"> </head>
+<body>
+  <audio id="sfx-level" src="sounds/level.mp3" preload="auto"></audio>
+  <audio id="sfx-correct" src="sounds/correct.mp3" preload="auto"></audio>
+
+  <div id="app">
+    <header id="topbar">
+      <div class="brand"><span class="neon">Neon</span>Hack Academy</div>
+      <div class="status">
+        <div id="xpbarWrap">
+          <div id="xpBar"><div id="xpFill"></div></div>
+          <div id="xpLabel">Level 1 • XP 0</div>
+        </div>
+      </div>
+    </header>
+
+    <div id="mainGrid">
+      <aside id="left">
+        <div class="panel" id="profilePanel">
+          <div class="avatar">R</div>
+          <div class="meta">
+            <div id="username">Rachel</div>
+            <div id="userlvl">Level 1</div>
+          </div>
+        </div>
+
+        <div class="panel" id="questsPanel">
+          <h4>Quests</h4>
+          <ul id="questsList"></ul>
+        </div>
+
+        <div class="panel" id="modulesPanel">
+          <h4>Modules</h4>
+          <div id="modules"></div>
+        </div>
+
+        <div class="panel small" id="pdfPanel">
+          <h4>Local Books</h4>
+          <ul>
+            <li><a href="/mnt/data/Hacking - The Art of Exploitation, 2nd Edition by Jon Erickson.pdf" target="_blank">Erickson — Hacking (local)</a></li>
+            <li><a href="/mnt/data/Penetration Testing A Hands-On Introduction to Hacking by Georgia Weidman.pdf" target="_blank">Weidman — PenTest (local)</a></li>
+            <li><a href="/mnt/data/The Shellcoder's Handbook - Discovering and Exploiting Security Holes by Chris Anley, John Heasman, Felix Lindner and Gerardo Richarte.pdf" target="_blank">Shellcoder's Handbook (local)</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <section id="content">
+        <div id="hero" class="panel">
+          <h2 id="lessonTitle">Welcome to NeonHack Academy</h2>
+          <p id="lessonSub">Choose a module to start your neon journey — complete quests, earn XP, fight bosses, learn deeply.</p>
+        </div>
+
+        <div id="lessonContent" class="panel"></div>
+
+        <div id="quizArea" class="panel hidden">
+          <h3>Quiz</h3>
+          <div id="quizQuestion"></div>
+          <ul id="quizOptions"></ul>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button id="nextQuestion" class="btn">Next</button>
+            <button id="endQuiz" class="btn alt">End Quiz</button>
+          </div>
+        </div>
+      </section>
+
+      <aside id="right">
+        <div class="panel" id="badgesPanel">
+          <h4>Badges</h4>
+          <div id="badges"></div>
+        </div>
+
+        <div class="panel" id="leaderboardPanel">
+          <h4>Local Leaderboard</h4>
+          <ol id="leaderboard"></ol>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <canvas id="confettiCanvas"></canvas>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

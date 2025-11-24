@@ -1,0 +1,71 @@
+/* NeonHack Academy styles - neon blue/purple theme */
+:root{
+  --bg:#050512;
+  --panel:#071029;
+  --accent1:#00e6ff;
+  --accent2:#8a4bff;
+  --muted:#98a0b3;
+  --glass: rgba(255,255,255,0.03);
+  --neon-shadow: 0 0 8px rgba(138,75,255,0.24), 0 8px 24px rgba(0,0,0,0.6);
+}
+
+/* Reset */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#02030a 0%, #050512 60%);font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:#e8f0ff}
+a{color:var(--accent1);text-decoration:none}
+#app{max-width:1200px;margin:18px auto;padding:12px;}
+
+/* Topbar */
+#topbar{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.0));border:1px solid rgba(255,255,255,0.03)}
+.brand{font-weight:700;font-size:18px}
+.brand .neon{color:var(--accent1);text-shadow:0 0 10px rgba(0,230,255,0.2)}
+
+#xpbarWrap{display:flex;flex-direction:column;align-items:flex-end}
+#xpBar{width:260px;height:10px;background:rgba(255,255,255,0.03);border-radius:6px;border:1px solid rgba(255,255,255,0.02);overflow:hidden}
+#xpFill{height:100%;width:0;background:linear-gradient(90deg,var(--accent1),var(--accent2));transition:width 700ms cubic-bezier(.2,.9,.2,1);box-shadow:0 8px 24px rgba(138,75,255,0.12)}
+
+/* Layout grid */
+#mainGrid{display:grid;grid-template-columns:260px 1fr 260px;gap:12px;margin-top:12px}
+.panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:var(--neon-shadow)}
+
+/* Left col */
+#left .avatar{width:54px;height:54px;border-radius:10px;background:linear-gradient(180deg,var(--accent2),var(--accent1));display:flex;align-items:center;justify-content:center;color:#071029;font-weight:800;font-size:20px;margin-right:12px}
+#profilePanel{display:flex;align-items:center;gap:12px}
+
+/* Modules list */
+#modules{display:flex;flex-direction:column;gap:8px;max-height:44vh;overflow:auto}
+.module-item{padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);cursor:pointer;transition:transform .12s,box-shadow .12s}
+.module-item:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(138,75,255,0.06)}
+.module-item.active{background:linear-gradient(90deg,rgba(0,230,255,0.06),rgba(138,75,255,0.06));border:1px solid rgba(138,75,255,0.12)}
+
+/* Content area */
+#content{display:flex;flex-direction:column;gap:12px}
+#hero h2{margin:0}
+#lessonContent{min-height:50vh;overflow:auto}
+.lesson-card{padding:12px;border-radius:10px;margin-bottom:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.0));border:1px solid rgba(255,255,255,0.02);transition:transform .12s}
+.lesson-card:hover{transform:translateY(-6px)}
+.btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;padding:8px 12px;border-radius:8px;color:#061022;cursor:pointer;box-shadow:0 8px 24px rgba(138,75,255,0.08)}
+.btn.alt{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+/* Right column */
+#badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:8px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+
+/* Confetti canvas */
+#confettiCanvas{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+
+/* Quiz */
+#quizOptions li{padding:10px;margin:8px 0;border-radius:8px;background:rgba(255,255,255,0.02);cursor:pointer}
+#quizOptions li.correct{background:linear-gradient(90deg, rgba(40,167,69,0.12), rgba(40,167,69,0.04))}
+#quizOptions li.wrong{background:linear-gradient(90deg, rgba(255,77,79,0.12), rgba(255,77,79,0.04))}
+
+/* Responsive */
+@media (max-width:1000px){
+  #mainGrid{grid-template-columns:1fr;grid-auto-rows:auto}
+  #right,#left{order:2}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important}
+}
